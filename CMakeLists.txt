@@ -66,7 +66,9 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}/lib)
 # as we are targeting cmake 2.8.7, we can't use
 #  set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 # let's fall back to add_definitions for now
+if(NOT ${CYGWIN})
 add_definitions(-fPIC)
+endif()
 
 add_subdirectory(lib)
 add_subdirectory(src)
